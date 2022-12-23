@@ -13,7 +13,7 @@ namespace N_Tier_Project.Controllers
         CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
         public IActionResult Index()
         {
-            var values=customerManager.TGetList();
+            var values = customerManager.GetCustomersListWithJob();
             return View(values);
         }
 

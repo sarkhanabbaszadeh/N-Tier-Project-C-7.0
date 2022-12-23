@@ -10,6 +10,7 @@
         <th hidden>#</th>
         <th>Müştəri adı</th>
         <th>Şəhər</th>
+        <th>Peşə</th>
         <th>Əməliyyatlar</th>
     </tr>
     @foreach (var item in Model)
@@ -18,6 +19,7 @@
             <td hidden>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.City</td>
+            <td>@item.Job.Name</td>
             <td><a href="/Customer/DeleteCustomer/@item.Id" class="btn btn-danger">Sil</a> <a href="/Customer/UpdateCustomer/@item.Id" class="btn btn-danger">Dəyişdir</a></td>
         </tr>
     }
