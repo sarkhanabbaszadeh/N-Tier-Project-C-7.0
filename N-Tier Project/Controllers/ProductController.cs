@@ -41,5 +41,24 @@ namespace N_Tier_Project.Controllers
             }
             return View();
         }
+
+        public IActionResult DeleteProduct(int id)
+        {
+            var value=productManager.TGetByID(id);
+            productManager.TDelete(value);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult UpdateProduct(int id)
+        {
+            var value = productManager.TGetByID(id);
+            return View(value);
+        }
+        [HttpPost]
+        public IActionResult UpdateProduct(Product p)
+        {
+            productManager.TUpdate(p);
+            return RedirectToAction("Index");
+        }
     }
 }
