@@ -55,7 +55,7 @@ namespace N_Tier_Project.Controllers
         public IActionResult UpdateCustomer(int id)
         {
             var value = customerManager.TGetByID(id);
-            return RedirectToAction("Index");
+            return View(value);
         }
 
         [HttpPost]
