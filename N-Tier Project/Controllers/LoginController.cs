@@ -42,5 +42,12 @@ namespace N_Tier_Project.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _signManager.SignOutAsync();
+            return RedirectToAction("Index","Login");
+        }
     }
+
 }
