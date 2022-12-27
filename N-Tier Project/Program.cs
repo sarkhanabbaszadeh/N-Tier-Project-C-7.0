@@ -1,4 +1,6 @@
 using DataAccessLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using N_Tier_Project.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
 
 var app = builder.Build();
 
@@ -20,6 +27,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseAuthentication();
 
 app.UseRouting();
 

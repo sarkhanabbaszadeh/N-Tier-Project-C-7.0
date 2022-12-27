@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using N_Tier_Project.Models;
@@ -6,6 +7,7 @@ using System.Drawing.Text;
 
 namespace N_Tier_Project.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly SignInManager<AppUser> _signManager;

@@ -1,8 +1,29 @@
-﻿
+﻿@model N_Tier_Project.Models.UserEditViewModel
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UILayout.cshtml";
 }
 
-<h1>Şifrə Səhifəsi</h1>
+<h1>Ayarlar Səhifəsi</h1>
 
+<form method="post">
+    @Html.Label("Adınız")
+    <input type="text" asp-for="Name" class="form-control"/>
+    <br />
+    @Html.Label("Soyadınız")
+    <input type="text" asp-for="SurName" class="form-control"/>
+    <br />
+    @Html.Label("Cinsiyətiniz")
+    <input type="text" asp-for="Gender" class="form-control"/>
+    <br />
+    @Html.Label("E-poçtanız")
+    <input type="text" asp-for="Email" class="form-control"/>
+    <br />
+    @Html.Label("Şifrə")
+    <input type="text" asp-for="Password" class="form-control"/>
+    <br />
+    @Html.Label("Şifrə Təkrar")
+    <input type="text" asp-for="ConfirmPassword" class="form-control"/>
+    <br />
+    <button class="btn btn-warning">Dəyişdir</button>
+</form>
